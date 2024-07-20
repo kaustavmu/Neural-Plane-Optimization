@@ -9,7 +9,7 @@ import keras
 import time
 
 warnings.filterwarnings("ignore")
-model = keras.models.load_model("C:/Users/kaust/Downloads/PSOmodel.keras")
+model = keras.models.load_model("PSOmodel.keras")
 
 def cl_cd_func(wing_area, aspect_ratio, e, airfoil, weight, kinematic_viscosity, density):
 
@@ -168,15 +168,15 @@ def cost_func(a=4, b=4, cd=12, wing_area=0.4, AR=7):
 
 if __name__ == '__main__':
     while True:
-        if os.path.isfile("C:/Users/kaust/Downloads/PSOmatlab.txt"):
+        if os.path.isfile("PSOmatlab.txt"):
             time.sleep(0.1)
-            f = open("C:/Users/kaust/Downloads/PSOmatlab.txt", "r")
+            f = open("PSOmatlab.txt", "r")
             lines = f.readlines()
             lines = [i[:-1] for i in lines]
             print(lines)
             f.close()
-            os.remove("C:/Users/kaust/Downloads/PSOmatlab.txt")
+            os.remove("PSOmatlab.txt")
             result = cost_func(lines[0], lines[1], lines[2], lines[3], lines[4])[0]
-            f2 = open("C:/Users/kaust/Downloads/PSOmatlab_return.txt", "w")
+            f2 = open("PSOmatlab_return.txt", "w")
             f2.write(str(result))
             f2.close()
